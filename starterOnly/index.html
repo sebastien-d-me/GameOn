@@ -52,7 +52,7 @@
         </button>
       </div>
 
-      <div class="bground">
+      <div class="bground" id="reserve">
         <div class="content">
           <span class="close"></span>
           <div class="modal-body">
@@ -64,7 +64,7 @@
               onsubmit="return validate(event);"
             >
               <div
-                class="formData">
+                class="formData" id="msg-first">
                 <label for="first">Prénom</label><br>
                 <input
                   class="text-control"
@@ -72,10 +72,11 @@
                   id="first"
                   name="first"
                   minlength="2"
+                  required
                 /><br>
               </div>
               <div
-                class="formData">
+                class="formData" id="msg-last">
                 <label for="last">Nom</label><br>
                 <input
                   class="text-control"
@@ -83,36 +84,39 @@
                   id="last"
                   name="last"
                   minlength="2"
+                  required
                 /><br>
               </div>
               <div
-                class="formData">
+                class="formData" id="msg-email">
                 <label for="email">E-mail</label><br>
                 <input
                   class="text-control"
                   type="email"
                   id="email"
                   name="email"
+                  required
                 /><br>
               </div>
               <div
-                class="formData">
+                class="formData" id="msg-birthdate">
                 <label for="birthdate">Date de naissance</label><br>
                 <input
                   class="text-control"
                   type="date"
                   id="birthdate"
                   name="birthdate"
+                  required
                 /><br>
               </div>
               <div
-                class="formData">
+                class="formData" id="msg-quantity">
                 <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
-                <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
+                <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99" required>
               </div>
               <p class="text-label">Quelles villes ?</p>
               <div
-                class="formData">
+                class="formData" id="msg-location">
                 <input
                   class="checkbox-input"
                   type="radio"
@@ -182,7 +186,7 @@
               </div>
 
               <div
-                class="formData">
+                class="formData" id="msg-checkbox">
                 <input
                   class="checkbox-input"
                   type="checkbox"
@@ -208,6 +212,15 @@
                 value="C'est parti"
               />
             </form>
+          </div>
+        </div>
+      </div>
+      <div class="bground" id="thank">
+        <div class="content">
+          <span class="close" id="close-thank"></span>
+          <div class="modal-body">
+            <p class="text-thank">Thank you for submitting your registration details</p>
+            <button class="btn-submit" onclick="closeConfirm()">Close</button>
           </div>
         </div>
       </div>
