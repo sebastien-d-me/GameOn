@@ -47,10 +47,8 @@ function validate(event) {
   let location5 = document.getElementById("location5");
   let location6 = document.getElementById("location6");
   let checkbox1 = document.getElementById("checkbox1");
-  let checkbox2 = document.getElementById("checkbox2");
 
-
-  // check form data
+  // check form data errors
   let nbError = 0;
 
   // check first name
