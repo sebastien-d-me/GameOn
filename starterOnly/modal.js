@@ -149,15 +149,16 @@ function validate(event) {
     document.getElementById("msg-checkbox").setAttribute("data-error", "");
   }
    
-  // send the form if there is 0 errors
+  // check if there is 0 errors
   if(nbError == 0) {
     document.getElementById("reserve").style.display = "none";
     document.getElementById("thank").style.display = "flex";
-    /*document.getElementById("form").submit();*/
   }
 }
 
 // close the confirmation modal
 function closeConfirm() {
   document.getElementById("thank").style.display = "none";
+  // send the form
+  document.getElementById("form").submit();
 }
