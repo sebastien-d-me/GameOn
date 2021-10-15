@@ -157,6 +157,7 @@ function validate(event) {
   }
 }
 
+// close the confirmation modal
 function closeConfirm() {
   document.getElementById("thank").style.display = "none";
 }

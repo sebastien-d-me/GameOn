@@ -485,9 +485,6 @@ footer {
 #thank {
   display: none;
 }
-#thank > .content {
-  /*min-height: 80%;*/
-}
 #thank > .content > .modal-body {
   display: flex;
   flex-direction: column;
