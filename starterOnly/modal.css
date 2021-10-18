@@ -45,7 +45,7 @@ img {
   display: block;
   color: #000000;
   text-align: center;
-  padding: 12px 12px;
+  padding: 10px 12px;
   margin: 5px;
   text-decoration: none;
   font-size: 20px;
@@ -70,13 +70,11 @@ img {
 
 @media screen and (max-width: 768px) {
   .topnav {
-    background: #ffffff;
     margin: auto;
     overflow: hidden;
     padding: 5% 20px 0 20px;
-    position: fixed;
+    position: relative;
     width: 100%;
-    z-index: 999;
   }
   .topnav a {
     display: none;
@@ -84,12 +82,18 @@ img {
   .topnav a.icon {
     float: right;
     display: block;
+    position: absolute;
+    right: 0;
   }
-  i.fa.fa-bars.btn-mobile {
+  .topnav > .main-navbar > .icon > .btn-mobile {
     font-size: 20px;
   }
-  .header-logo > img {
+  .topnav a:hover .header-logo > img {
     width: 50%;
+  }
+  .topnav.responsive > .main-navbar {
+    float: unset;
+    margin-top: 60px;
   }
 }
 
@@ -115,8 +119,15 @@ img {
   }
   .topnav a.icon {
     float: right;
-    display: block;
     margin-top: -15px;
+  }
+}
+
+@media screen and (max-width: 475px) {
+  .topnav {
+    background-color: #ffffff;
+    position: fixed;
+    z-index: 99;
   }
 }
 
@@ -156,8 +167,12 @@ main {
 
 @media screen and (max-width: 768px) {
   main {
-    margin-top: 50px;
     position: relative;
+  }
+}
+@media screen and (max-width: 475px) {
+  main {
+    margin-top: 60px;
   }
 }
 
@@ -537,16 +552,18 @@ footer {
     display: none;
   }
   .hero-headline {
-    font-size: 4.5rem;
+    font-size: 2.5rem;
+    font-weight: bold;
     white-space: normal;
   }
   .hero-text {
-    width: unset;
     font-size: 1.5rem;
+    margin-top: 20px;
+    width: unset;
   }
   .hero-img img {
     border-radius: 10px;
-    margin-top: 40px;
+    margin-top: 0px;
   }
   .hero-section > .btn-signup {
     display: block;
@@ -554,8 +571,12 @@ footer {
     padding: 12px 35px;
   }
   .copyrights {
-    margin-top: 50px;
+    margin-top: 15px;
     text-align: center;
+  }
+  .bground > .content {
+    border-radius: unset;
+    padding-bottom: 10px;
   }
 }
 
@@ -563,15 +584,13 @@ footer {
   .bground {
     top: 50px;
   }
-  .bground > .content {
-    padding-bottom: 10px;
-  }
   .hero-content {
     min-width: unset;
     padding: 0;
   }
   .hero-headline {
     font-size: 2.5rem;
+    text-align: center;
   }
   .hero-text {
     font-size: 1rem;
