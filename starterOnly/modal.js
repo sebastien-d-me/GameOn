@@ -131,7 +131,7 @@ function validate(event) {
   if(!location1.checked && !location2.checked && !location3.checked && !location4.checked && !location5.checked && !location6.checked) {
     nbError = nbError + 1;
     document.getElementById("msg-location").setAttribute("data-error-visible", true);
-    document.getElementById("msg-location").setAttribute("data-error", "Vous devez cocher au moins une ville");
+    document.getElementById("msg-location").setAttribute("data-error", "Vous devez cocher une ville");
   } else {
     document.getElementById("msg-location").setAttribute("data-error-visible", false);
     document.getElementById("msg-location").setAttribute("data-error", "");
