@@ -539,6 +539,7 @@ footer {
   .hero-section {
     display: block;
     box-shadow: unset;
+    min-height: unset;
   }
   .hero-content {
     background: #fff;
