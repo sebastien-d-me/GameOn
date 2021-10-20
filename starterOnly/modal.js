@@ -29,6 +29,19 @@ function closeModal() {
   modalbg.style.display = "none";
 }
 
+// remove error
+function removeError(idElem) {
+  document.getElementById(idElem).setAttribute("data-error-visible", false);
+  document.getElementById(idElem).setAttribute("data-error", "");
+}
+
+// show error
+function showError(idElem, msgError) {
+  document.getElementById(idElem).setAttribute("data-error-visible", true);
+  document.getElementById(idElem).setAttribute("data-error", msgError);
+}
+
+// check location | If one is checked return true, if none of them return false
 function checkLocation() {
   let locationChecked = false;
   const location = document.getElementsByName("location");
@@ -62,38 +75,30 @@ function validate(event) {
 
   // check first name
   if(first.length != 0) {
-    document.getElementById("msg-first").setAttribute("data-error-visible", false);
-    document.getElementById("msg-first").setAttribute("data-error", "");
+    removeError("msg-first");
     if(first.length < 2) {
       nbError = nbError + 1;
-      document.getElementById("msg-first").setAttribute("data-error-visible", true);
-      document.getElementById("msg-first").setAttribute("data-error", "Le champ prénom doit contenir au moins 2 caractères");
+      showError("msg-first", "Le champ prénom doit contenir au moins 2 caractères");
     } else {
-      document.getElementById("msg-first").setAttribute("data-error-visible", false);
-      document.getElementById("msg-first").setAttribute("data-error", "");
+      removeError("msg-first");
     }
   } else {
     nbError = nbError + 1;
-    document.getElementById("msg-first").setAttribute("data-error-visible", true);
-    document.getElementById("msg-first").setAttribute("data-error", "Le champ prénom ne doit pas être vide");
+    showError("msg-first", "Le champ prénom ne doit pas être vide");
   }
 
   // check last name
   if(last.length != 0) {
-    document.getElementById("msg-last").setAttribute("data-error-visible", false);
-    document.getElementById("msg-last").setAttribute("data-error", "");
+    removeError("msg-last");
     if(last.length < 2) {
       nbError = nbError + 1;
-      document.getElementById("msg-last").setAttribute("data-error-visible", true);
-      document.getElementById("msg-last").setAttribute("data-error", "Le champ nom doit contenir au moins 2 caractères");
+      showError("msg-last", "Le champ nom doit contenir au moins 2 caractères");
     } else {
-      document.getElementById("msg-last").setAttribute("data-error-visible", false);
-      document.getElementById("msg-last").setAttribute("data-error", "");
+      removeError("msg-last");
     }
   } else {
     nbError = nbError + 1;
-    document.getElementById("msg-last").setAttribute("data-error-visible", true);
-    document.getElementById("msg-last").setAttribute("data-error", "Le champ nom ne doit pas être vide");
+    showError("msg-last", "Le champ nom ne doit pas être vide");
   }
 
   // check email
@@ -101,68 +106,54 @@ function validate(event) {
   let checkEmail = testEmail.test(email);
   if(checkEmail == false) {
     nbError = nbError + 1;
-    document.getElementById("msg-email").setAttribute("data-error-visible", true);
-    document.getElementById("msg-email").setAttribute("data-error", "L'adresse email est invalide");
+    showError("msg-email", "L'adresse email est invalide");
   } else {
-    document.getElementById("msg-email").setAttribute("data-error-visible", false);
-    document.getElementById("msg-email").setAttribute("data-error", "");
+    removeError("msg-email");
   }
 
   // check birthdate
   const age = (new Date(Date.now() - (new Date(birthdate)).getTime())).getFullYear() - 1970;
-
   if(Date.parse(birthdate)) {
     if(age > 17 && age < 101) {
-      document.getElementById("msg-birthdate").setAttribute("data-error-visible", false);
-      document.getElementById("msg-birthdate").setAttribute("data-error", "");
+      removeError("msg-birthdate");
     } else {
       nbError = nbError + 1;
-      document.getElementById("msg-birthdate").setAttribute("data-error-visible", true);
-      document.getElementById("msg-birthdate").setAttribute("data-error", "Vous devez avoir entre 18 et 100 ans.");
+      showError("msg-birthdate", "Vous devez avoir entre 18 et 100 ans");
     }
   } else {
     nbError = nbError + 1;
-    document.getElementById("msg-birthdate").setAttribute("data-error-visible", true);
-    document.getElementById("msg-birthdate").setAttribute("data-error", "Le champ date de naissance n'est pas valide");
+    showError("msg-birthdate", "Le champ date de naissance n'est pas valide");
   }
 
   // check quantity
   if(quantity.length > 0) {
-    document.getElementById("msg-quantity").setAttribute("data-error-visible", false);
-    document.getElementById("msg-quantity").setAttribute("data-error", "");
+    removeError("msg-quantity");
     if(isNaN(quantity)){
       nbError = nbError + 1;
-      document.getElementById("msg-quantity").setAttribute("data-error-visible", true);
-      document.getElementById("msg-quantity").setAttribute("data-error", "Le nombre de tournoi doit être un nombre");
+      showError("msg-quantity", "Le nombre de tournoi doit être un nombre");
     } else {
-      document.getElementById("msg-quantity").setAttribute("data-error-visible", false);
-      document.getElementById("msg-quantity").setAttribute("data-error", "");
+      removeError("msg-quantity");
     }
   } else {
     nbError = nbError + 1;
-    document.getElementById("msg-quantity").setAttribute("data-error-visible", true);
-    document.getElementById("msg-quantity").setAttribute("data-error", "Le nombre de tournoi où vous avez déjà participé ne doit pas être vide");
+    showError("msg-quantity", "Le nombre de tournoi où vous avez déjà participé ne doit pas être vide");
   }
 
   // check location
   var locationChecked = checkLocation();
   if(locationChecked == false) {
     nbError = nbError + 1;
-    document.getElementById("msg-location").setAttribute("data-error-visible", true);
-    document.getElementById("msg-location").setAttribute("data-error", "Vous devez cocher une ville");
+    showError("msg-location", "Vous devez cocher une ville");
   } else {
-    document.getElementById("msg-location").setAttribute("data-error-visible", false);
-    document.getElementById("msg-location").setAttribute("data-error", "");
+    removeError("msg-location");
   }
 
   // check checkbox
   if(!checkbox1.checked) {
     nbError = nbError + 1;
-    document.getElementById("msg-checkbox").setAttribute("data-error-visible", true);
-    document.getElementById("msg-checkbox").setAttribute("data-error", "Vous devez accepter les conditions d'utilisation");
+    showError("msg-checkbox", "Vous devez accepter les conditions d'utilisation");
   } else {
-    document.getElementById("msg-checkbox").setAttribute("data-error-visible", false);
-    document.getElementById("msg-checkbox").setAttribute("data-error", "");
+    removeError("msg-checkbox");
   }
    
   // check if there is 0 errors
