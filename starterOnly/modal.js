@@ -29,6 +29,21 @@ function closeModal() {
   modalbg.style.display = "none";
 }
 
+function checkLocation() {
+  let locationChecked = false;
+  const location = document.getElementsByName("location");
+  location.forEach(function(verifLocation) {
+    if(verifLocation.checked) {
+      locationChecked = true;
+    }
+  });
+  if(locationChecked == true) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 // validate the form
 function validate(event) {
   // prevent form submit
@@ -40,12 +55,6 @@ function validate(event) {
   let email = document.getElementById("email").value;
   let birthdate = document.getElementById("birthdate").value;
   let quantity = document.getElementById("quantity").value;
-  let location1 = document.getElementById("location1");
-  let location2 = document.getElementById("location2");
-  let location3 = document.getElementById("location3");
-  let location4 = document.getElementById("location4");
-  let location5 = document.getElementById("location5");
-  let location6 = document.getElementById("location6");
   let checkbox1 = document.getElementById("checkbox1");
 
   // check form data errors
@@ -136,7 +145,8 @@ function validate(event) {
   }
 
   // check location
-  if(!location1.checked && !location2.checked && !location3.checked && !location4.checked && !location5.checked && !location6.checked) {
+  var locationChecked = checkLocation();
+  if(locationChecked == false) {
     nbError = nbError + 1;
     document.getElementById("msg-location").setAttribute("data-error-visible", true);
     document.getElementById("msg-location").setAttribute("data-error", "Vous devez cocher une ville");
