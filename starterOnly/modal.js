@@ -38,7 +38,7 @@ function validate(event) {
   let first = event.target["first"].value;
   let last = event.target["last"].value;
   let email = event.target["email"].value;
-  let birthdate = document.getElementById("birthdate");
+  let birthdate = document.getElementById("birthdate").value;
   let quantity = event.target["quantity"].value;
   let location1 = document.getElementById("location1");
   let location2 = document.getElementById("location2");
@@ -100,9 +100,17 @@ function validate(event) {
   }
 
   // check birthdate
-  if(Date.parse(birthdate.value)) {
-    document.getElementById("msg-birthdate").setAttribute("data-error-visible", false);
-    document.getElementById("msg-birthdate").setAttribute("data-error", "");
+  const age = (new Date(Date.now() - (new Date(birthdate)).getTime())).getFullYear() - 1970;
+
+  if(Date.parse(birthdate)) {
+    if(age > 17 && age < 101) {
+      document.getElementById("msg-birthdate").setAttribute("data-error-visible", false);
+      document.getElementById("msg-birthdate").setAttribute("data-error", "");
+    } else {
+      nbError = nbError + 1;
+      document.getElementById("msg-birthdate").setAttribute("data-error-visible", true);
+      document.getElementById("msg-birthdate").setAttribute("data-error", "Vous devez avoir entre 18 et 100 ans.");
+    }
   } else {
     nbError = nbError + 1;
     document.getElementById("msg-birthdate").setAttribute("data-error-visible", true);
