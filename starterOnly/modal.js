@@ -35,11 +35,11 @@ function validate(event) {
   event.preventDefault();
 
   // get DOM Elements
-  let first = event.target["first"].value;
-  let last = event.target["last"].value;
-  let email = event.target["email"].value;
+  let first = document.getElementById("first").value;
+  let last = document.getElementById("last").value;
+  let email = document.getElementById("email").value;
   let birthdate = document.getElementById("birthdate").value;
-  let quantity = event.target["quantity"].value;
+  let quantity = document.getElementById("quantity").value;
   let location1 = document.getElementById("location1");
   let location2 = document.getElementById("location2");
   let location3 = document.getElementById("location3");
