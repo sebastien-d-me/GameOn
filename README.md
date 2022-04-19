@@ -2,7 +2,7 @@
 ## Projet 4 - GameOn
 ------------
 ### Description du projet
-Ce projet est le n°4 du parcours [Développeur d'application - JavaScript React](https://openclassrooms.com/fr/paths/516-developpeur-dapplication-javascript-react "Développeur d'application - JavaScript React") qui consiste à créer une landing page en HTML/CSS et JS.
+Ce projet est le n°4 du parcours [**Développeur Front-End**](https://openclassrooms.com/fr/paths/314-developpeur-front-end "Développeur Front-End") qui consiste à créer une landing page en HTML/CSS et JS.
 ### Cahiers des charges
 ##### Spécifications fonctionnelles
 1. Fermer la modale.
