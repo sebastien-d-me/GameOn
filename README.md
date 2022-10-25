@@ -22,4 +22,4 @@ Ce projet est le n°4 du parcours [**Développeur Front-End**](https://openclass
 
 ### Informations complémentaires
 - Soutenance validé le 02/11/2021.
-- Lien vers le site : [Cliquez-ici](https://sebastien-d-me.github.io/GameOn-website-FR/starterOnly/ "Cliquez-ici").
+- Lien vers le site : [Cliquez-ici](https://sebastien-d-me.github.io/GameOn/ "Cliquez-ici").
