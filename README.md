@@ -1,3 +1,5 @@
+<meta property="og:image" content="https://raw.githubusercontent.com/sebastien-d-me/GameOn/master/ressources/img/Logo.png">
+
 # Formation Développeur Front-End
 ## Projet 4 - GameOn
 ------------
